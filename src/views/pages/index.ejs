@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Home</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type='text/css' media='screen' href="bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body onload="ip('<%= ip %>')">
+    <%- include('template/navbar.ejs') %>
+
+    <main class="container position">
+        <div class="row">
+            <% for (var i = 0; i <10;  i++ ) { %>
+                <div class="card mb-3">
+                    <img src="" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+            <%}%>
+        </div>
+    </main>
+
+        <script src="jquery/dist/jquery.js"></script>
+        <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="js/user.js"></script>
+</body>
+
+</html>

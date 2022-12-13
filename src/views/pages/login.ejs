@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/login.css'>
+    <link rel="stylesheet" type='text/css' media='screen' href="bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body onload="message('<%= obj.message %>')">
+        <main class="main" >
+           
+            <div class="login">
+                
+                <div class="card">
+                    <div class="card-body">
+                        
+                        <h5 class="card-title text-center">Login</h5>
+                       
+                        <hr>
+                        <div class="row">
+                            <form id="formLogin" method="post">
+                                <div class="col-12">
+                                    <input type="text" name="email" class="form-control mb-3"
+                                        placeholder="email@email.com" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="password" name="password" class="form-control mb-3"
+                                        placeholder="Senha de acesso" required>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary col-12" id="access">Acessar</button>
+                                </div>
+                                <div class="col-12">
+                                    <a href="#">recuperar senha.</a>
+                                </div>
+                                <div class="col-12">
+                                    
+                                    <a href="#">Primeiro acesso!</a>
+                                </div>
+                               
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <input type="hidden" id="message" value="<%= obj.message %>">
+        <script src="jquery/dist/jquery.js"></script>
+        <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="js/login.js"></script>
+</body>
+
+</html>
