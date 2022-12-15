@@ -1,13 +1,18 @@
 let host = ''; // address service
-const ip = (ip) => {
-  return host = ip;
+let data = {}; //user 
+const init = (ip, user) => {
+  host = ip;
+  data = JSON.parse(user);
 }
 
-const logout = () => {
-  $('#formLogout').on('submit', (event) => {
+const logout = async () => {
+  try {
+
     $.ajax({
       url: `${host}/logout`
     });
-    event.preventDefault()
-  });
+
+  } catch (error) {
+    console.log(error)
+  }
 }

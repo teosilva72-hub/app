@@ -31,8 +31,8 @@ module.exports = new class Controller {
     }
 
     async logout(req, res){
-
-        res.clearCookie("bearer");
-        res.redirect('/')
+        console.log('aqui')
+        res.cookie("bearer");
+        res.redirect('/login')
     }
 }

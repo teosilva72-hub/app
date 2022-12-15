@@ -10,6 +10,7 @@ module.exports = new class IndexController{
             //token = token.split('=')[1];
             let user = await service.getUser(token);
             user = user.data;
+            user = JSON.stringify(user);
             if(!token) return res.redirect('login');
             return await res.render('index', {user, ip: `${process.env.host2}:${process.env.PORT}`});
         }catch(error){
