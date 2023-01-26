@@ -50,7 +50,7 @@ function listTable(data) {
     for (var i = 0; i < data.length; i++) {
         $('.appendProduct').append(`
             <tr class="position${i} columnTable">
-                <td>${data[i].categoria}</td>
+                <td>${data[i].category[0].name}</td>
                 <td>${data[i].descricao.substring(0, 20) + '...'}</td>
                 <td>${data[i].dt_fabricacao}</td>
                 <td>${data[i].dt_validade}</td>
@@ -99,7 +99,7 @@ function getCategory() {
 function listCategory(data) {
     for (var i = 0; i < data.length; i++) {
         $('.categoria').append(`
-        <option value="${data[i].name}">${data[i].name}</option>
+        <option value="${data[i].id}">${data[i].name}</option>
     `);
     }
 }
@@ -115,7 +115,32 @@ function maskValues() {
 maskValues();
 
 function postcategory() {
-    var url = "http://localhost:3005/category";
+
+    if ($('#inputNewCategory').val().trim() == '') alert401('alertCategory', '* Campo categoria não pode ser vazio!');
+    else {
+        var url = `${ip[0]}:${ip[1]}:3005/category`;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url);
+
+        xhr.setRequestHeader("Authorization", `${token()[0]} ${token()[1]}`);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 401) alert401('alertCategory', `Categoria "${$('#inputNewCategory').val()}" já cadastrada.`);
+                else if (xhr.status === 200) alert200('alertCategory', `Categoria "${$('#inputNewCategory').val()}" salvo com sucesso.`);
+            }
+        };
+
+        var data = `{"name":"${$('#inputNewCategory').val()}"}`;
+
+        xhr.send(data);
+    }
+}
+
+function postProduct(){
+    var url = `${ip[0]}:${ip[1]}:3005/product-register`;
 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url);
@@ -125,12 +150,28 @@ function postcategory() {
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
-            console.log(xhr.status);
-            console.log(xhr.responseText);
+            if (xhr.status === 400) alert401('alertPostProduct', `Erro ao salvar produto!`);
+            else if (xhr.status === 201) alert200('alertPostProduct', `Produto salvo com sucesso!`);
         }
     };
 
-    var data = `{"name":"${$('#inputNewCategory').val()}"}`;
+    var data = `
+        {
+            "categoria": "${$('.categoria').val()}",
+            "nome": "${$('.nome').val()}",
+            "marca": "${$('.marca').val()}",
+            "modelo": "${$('.modelo').val()}",
+            "descricao": "${$('.descricao').val()}",
+            "cod_barras": "${$('.cod_barras').val()}",
+            "dt_fabricacao": "${$('.dt_fabricacao').val()}",
+            "dt_validade": "${$('.dt_validade').val()}",
+            "fabricante": "${$('.fabricante').val()}",
+            "localizacao": "${$('.localizacao').val()}",
+            "quantidade": ${$('.quantidade').val()},
+            "valor": "${$('.valor').val()}",
+            "valor_venda": "${$('.valor_venda').val()}"
+        }
+    `;
 
     xhr.send(data);
 }

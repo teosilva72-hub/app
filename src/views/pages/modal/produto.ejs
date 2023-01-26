@@ -6,6 +6,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <div id="alertPostProduct"></div>
                 <form id="formProduto">
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
@@ -74,7 +75,7 @@
                 <button type="button" class="btn btn-warning" data-bs-dismiss="modal">
                     <i class="bi bi-x-circle"></i> Fechar
                 </button>
-                <button type="button" class="btn btn-danger">
+                <button type="button" class="btn btn-danger" onclick="postProduct()">
                     <i class="bi bi-save"></i> Salvar
                 </button>
             </div>
@@ -90,11 +91,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
+                <div id="alertCategory" class="text-center"></div>
                 <div class="row">
                     <div class="col-12">
                         <span class="txt-span">Categoria</span>
-                        <input type="text" id="inputNewCategory" name="name" class="form-control">
+                        <input type="text" id="inputNewCategory" name="name" class="form-control" required>
                     </div>
                 </div>
 
