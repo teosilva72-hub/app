@@ -150,7 +150,7 @@ function postProduct(){
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
-            if (xhr.status === 400) alert401('alertPostProduct', `Erro ao salvar produto!`);
+            if (xhr.status === 400) alert401('alertPostProduct', `Erro ao salvar produto! \nError: ${xhr.responseText}`);
             else if (xhr.status === 201) alert200('alertPostProduct', `Produto salvo com sucesso!`);
         }
     };
