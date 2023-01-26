@@ -5,6 +5,7 @@ module.exports = new class Controller {
 
     async login(req, res) {
         let obj = {};
+        res.clearCookie("bearer");
         try {
             obj.message = 'Faça Login';
             await res.render('login',{obj});
@@ -31,8 +32,7 @@ module.exports = new class Controller {
     }
 
     async logout(req, res){
-        console.log('aqui')
-        res.cookie("bearer");
+        res.clearCookie("bearer");
         res.redirect('/login')
     }
 }

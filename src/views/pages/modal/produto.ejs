@@ -1,0 +1,108 @@
+<div class="modal fade" id="modalProduto" tabindex="-1" aria-labelledby="modalProduto" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="titleModal">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formProduto">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <span class="txt-span">Categoria</span>
+                            <select name="categoria" class="categoria form-select mb-3" required>
+                                <option value="">Selecionar</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <span class="txt-span">Nome</span>
+                            <input type="text" name="nome" class="nome form-control mb-3" required>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <span class="txt-span">Marca</span>
+                            <input type="text" name="marca" class="marca form-control mb-3" required>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <span class="txt-span">Modelo</span>
+                            <input type="text" name="modelo" class="modelo form-control mb-3" required>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <hr>
+                            <div class="form-floating">
+                                <textarea class="form-control descricao" name="descricao" id="descricao"
+                                    style="height: 100px"></textarea>
+                                <label for="floatingTextarea2">Descrição Produto</label>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <span class="txt-span">Código de barras</span>
+                            <input type="text" name="cod_barras" class="cod_barras form-control mb-3" required>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <span class="txt-span">Data Fabricação</span>
+                            <input type="date" name="dt_fabricacao" class="dt_fabricacao form-control mb-3" required>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <span class="txt-span">Data Validade</span>
+                            <input type="date" name="dt_validade" class="dt_validade form-control mb-3" required>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <span class="txt-span">Fabricante</span>
+                            <input type="text" name="fabricante" class="fabricante form-control mb-3" required>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <span class="txt-span">Localização</span>
+                            <input type="text" name="localizacao" class="localizacao form-control mb-3" required>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <span class="txt-span">Unid.| kg| Quant.</span>
+                            <input type="number" name="quantidade" class="quantidade form-control mb-3" required>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <span class="txt-span">Valor Compra</span>
+                            <input type="text" name="valor" class="valor money form-control mb-3" required>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <span class="txt-span">Valor Venda</span>
+                            <input type="text" name="valor_venda" class="valor_venda money form-control mb-3" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle"></i> Fechar
+                </button>
+                <button type="button" class="btn btn-danger">
+                    <i class="bi bi-save"></i> Salvar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="categoryNew" tabindex="-1" aria-labelledby="categoryNew" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Nova categoria</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-12">
+                        <span class="txt-span">Categoria</span>
+                        <input type="text" id="inputNewCategory" name="name" class="form-control">
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" onclick="postcategory()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

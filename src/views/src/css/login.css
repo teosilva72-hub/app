@@ -9,30 +9,9 @@ body {
     background-color: rgba(0, 0, 0, 0.34) !important;
 }
 
-.login {
-    position: relative;
+.login{
+    position: fixed;
     width: 50%;
     left: 25%;
-    margin-top: 10%;
-    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
-    -moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
-    box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
-}
-
-@media (max-width: 700px) {
-    .login {
-        width: 90%;
-        left: 5%;
-        margin-top: 25%;
-
-    }
-}
-
-@media (min-width: 700px) {
-    .login {
-        width: 80%;
-        left: 10%;
-        margin-top: 10%;
-
-    }
+    top: 25%;
 }

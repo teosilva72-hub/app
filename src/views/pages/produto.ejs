@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <link rel="stylesheet" type='text/css' media='screen' href="bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/produto.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
+    <link rel="stylesheet" href="bootstrap-icons/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <%- include('template/navbar.ejs') %>
+        <%- include('modal/produto.ejs') %>
+
+            <main class="mainProduto">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3">
+                            <input id="filterTable" class="form-control text-center" placeholder="Filtro de pesquisa"
+                                onkeyup="filterTable()" />
+                        </div>
+                        <div class="col-3">
+                            <button type="button" class="btn btn-danger col-12" data-bs-toggle="modal"
+                                data-bs-target="#modalProduto" onclick="titleModal(1); getCategory()">
+                                <i class="bi bi-plus-circle"></i> Novo
+                            </button>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" class="btn btn-primary col-12" data-bs-toggle="modal"
+                                data-bs-target="#categoryNew">
+                                <i class="bi bi-plus-circle"></i> Categoria
+                            </button>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" class="btn btn-warning col-12" disabled>
+                                <i class="bi bi-exclamation-diamond"></i> Categoria
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <table id="tableProduto" class="table table-hover">
+                        <thead>
+                            <tr class="text-center">
+                                <th>Categoria</th>
+                                <th>Descrição</th>
+                                <th>Data Fab.</th>
+                                <th>Data Val.</th>
+                                <th>Fabricante</th>
+                                <th>Local</th>
+                                <th>Marca</th>
+                                <th>Nome</th>
+                                <th>Unid.</th>
+                                <th>Detalhe</th>
+                            </tr>
+                        </thead>
+                        <tbody class="appendProduct text-center"></tbody>
+                    </table>
+                </div>
+            </main>
+
+            <script src="jquery/dist/jquery.js"></script>
+            <script src="js/maskMoney.js"></script>
+            <script src="js/jquery.dataTables.js"></script>
+            <script src="bootstrap/dist/js/bootstrap.js"></script>
+            <script src="js/produto.js"></script>
+</body>
+
+</html>
