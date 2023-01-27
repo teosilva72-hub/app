@@ -1,0 +1,53 @@
+<div class="modal fade" id="regiterUser" tabindex="-1" aria-labelledby="regiterUser" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Criar usuário.</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="registerUserForm">
+                    <div class="row">
+                        <div class="col-12" id="msgUser"></div>
+                        <div class="col-md-6 col-sm-12">
+                            <span>Nome Completo</span>
+                            <input type="text" name="name" class="name form-control" placeholder="Mateus Silva">
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <span>Nome de usuário</span>
+                            <input type="text" name="nickname" class="nickname form-control" placeholder="@teosilva72">
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <span>E-mail</span>
+                            <input type="email" name="email" class="email form-control" placeholder="email@email.com">
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <span>Senha</span>
+                            <input type="password" name="password" class="password form-control" placeholder="@teosilva72">
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <span>Celular</span>
+                            <input type="number" name="cell" class="cell form-control" placeholder="@teosilva72">
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <span>Data nascimento</span>
+                            <input type="date" name="birth" class="birth form-control" placeholder="@teosilva72">
+                        </div>
+                        <div class="col-md-6">
+                            <span>Sexo</span>
+                            <select name="categoria" class="sex form-select mb-3" required>
+                                <option value="">Selecionar</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="feminino">Feminino</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-danger" onclick="postUser()">Criar usuário</button>
+            </div>
+        </div>
+    </div>
+</div>

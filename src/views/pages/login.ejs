@@ -10,16 +10,17 @@
     <link rel="stylesheet" type='text/css' media='screen' href="bootstrap/dist/css/bootstrap.css">
 </head>
 
-<body onload="message('<%= obj.message %>')">
-        <main class="main" >
-           
+<body>
+    <%- include('modal/createUser.ejs') %>
+        <main class="main">
+
             <div class="login">
-                
+
                 <div class="card">
                     <div class="card-body">
-                        
+
                         <h5 class="card-title text-center">Login</h5>
-                       
+
                         <hr>
                         <div class="row">
                             <form id="formLogin" method="post">
@@ -32,16 +33,17 @@
                                         placeholder="Senha de acesso" required>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary col-12" id="access">Acessar</button>
+                                    <button type="submit" class="btn btn-primary col-12 mb-3" id="access">Acessar</button>
                                 </div>
+
                                 <div class="col-12">
-                                    <a href="#">recuperar senha.</a>
+                                    <button type="button" class="btn btn-warning col-12" onclick="free()">
+                                        Cadastro
+                                    </button>
+                                    <button type="button" data-bs-toggle="modal"
+                                    data-bs-target="#regiterUser" id="btnRegister" class="d-none"></button>
                                 </div>
-                                <div class="col-12">
-                                    
-                                    <a href="#">Primeiro acesso!</a>
-                                </div>
-                               
+
                             </form>
                         </div>
                     </div>
@@ -53,6 +55,7 @@
         <script src="jquery/dist/jquery.js"></script>
         <script src="bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="js/login.js"></script>
+        <script src="js/alerts.js"></script>
 </body>
 
 </html>
