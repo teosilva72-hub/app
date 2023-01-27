@@ -4,7 +4,7 @@ require('dotenv/config');
 module.exports = new class Controller {
 
     async login(req, res) {
-        let obj = {};
+        let obj = {ip: process.env.host2};
         res.clearCookie("bearer");
         try {
             obj.message = 'Faça Login';

@@ -1,4 +1,4 @@
-let ip = localStorage.getItem("ip")
+let ip = $('#host').val();
 ip = ip.split(":");
 const token = () => {
   let token = document.cookie;
