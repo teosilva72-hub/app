@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Criar usuário.</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-person-add"></i> Criar usuário.</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -23,7 +23,8 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <span>Senha</span>
-                            <input type="password" name="password" class="password form-control" placeholder="***********">
+                            <input type="password" name="password" class="password form-control"
+                                placeholder="***********">
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <span>Celular</span>
@@ -45,8 +46,33 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-danger" onclick="postUser()">Criar usuário</button>
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal"><i class="bi bi-box-arrow-right"></i> Sair</button>
+                <button type="button" class="btn btn-danger" onclick="postUser()"><i class="bi bi-person-add"></i> Criar usuário</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ACCESS -->
+<div class="modal fade" id="modalPassword" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="modalPassword" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel"><i class="bi bi-exclamation-diamond-fill"></i> TOKEN DE ACESSO</h1>
+                <button type="button" class="btn-close closeModalToken" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12" id="errorToken"></div>
+                    <div class="col-md-12 col-sm-12">
+                        <input type="text" class="form-control text-center" value="" id="token" placeholder="TOKEN">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning closeModal" data-bs-dismiss="modal"><i class="bi bi-box-arrow-right"></i> Sair</button>
+                <button type="button" class="btn btn-danger" onclick="access();"><i class="bi bi-box-arrow-in-right"></i> Acessar</button>
             </div>
         </div>
     </div>

@@ -14,14 +14,8 @@ $(() => {
   });
 });
 
-function free() {
-  var pass = prompt("Digite a senha de acesso.");
-  if (pass == 'admin') $('#btnRegister').click();
-  else alert('Senha invalida.');
-}
-
 function postUser() {
-  
+
   var url = `${ip[0]}:${ip[1]}:3005/user-register`;
 
   var xhr = new XMLHttpRequest();
@@ -51,4 +45,28 @@ function postUser() {
   `;
 
   xhr.send(data);
+}
+
+function access() {
+  const token = $('#token').val();
+  var url = `http://localhost:3005/verify-token/${token}`;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", url);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      if(xhr.status === 200){ 
+        $('.closeModalToken').click();
+        $('#btnRegister').click();
+      
+      }
+    
+      else alert401('errorToken', `Token inválido!`);
+    }
+  };
+
+  xhr.send();
+
 }

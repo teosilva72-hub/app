@@ -19,46 +19,52 @@
             <main class="mainProduto" id="mainProduct">
                 <div class="container">
                     <div class="row">
-                        <div class="col-3">
-                            <input id="filterTable" class="form-control text-center" placeholder="Filtro de pesquisa"
-                                onkeyup="filterTable()" />
-                        </div>
-                        <div class="col-3">
-                            <button type="button" class="btn btn-danger col-12" data-bs-toggle="modal"
+                        <div class="col-12" id="msgAction"></div>
+                        <div class="col-md-2 col-sm-12">
+                            <button type="button" class="btn btn-danger col-12 mb-3" data-bs-toggle="modal"
                                 data-bs-target="#modalProduto" onclick="titleModal(1); getCategory()">
                                 <i class="bi bi-plus-circle"></i> Novo
                             </button>
                         </div>
-                        <div class="col-3">
-                            <button type="button" class="btn btn-primary col-12" data-bs-toggle="modal"
+                        <div class="col-md-2 col-sm-12">
+                            <button type="button" class="btn btn-primary col-12 mb-3" data-bs-toggle="modal"
                                 data-bs-target="#categoryNew">
                                 <i class="bi bi-plus-circle"></i> Categoria
                             </button>
                         </div>
-                        <div class="col-3">
-                            <button type="button" class="btn btn-warning col-12" disabled>
-                                <i class="bi bi-exclamation-diamond"></i> Categoria
+                        <div class="col-md-2 col-sm-12">
+                            <button type="button" class="btn btn-warning col-12 mb-3" disabled>
+                                <i class="bi bi-exclamation-diamond"></i> Alerta
                             </button>
                         </div>
                     </div>
 
                     <hr>
-                    <table id="tableProduto" class="table table-hover">
+                    <table id="tableProduto" class="table table-hover table-dark table-striped">
                         <thead>
-                            <tr class="text-center">
+                            <tr>
                                 <th>Categoria</th>
-                                <th>Descrição</th>
-                                <th>Data Fab.</th>
-                                <th>Data Val.</th>
-                                <th>Fabricante</th>
-                                <th>Local</th>
-                                <th>Marca</th>
                                 <th>Nome</th>
+                                <th>Marca</th>
+                                <th>dt_fabricacao</th>
+                                <th>dt_validade</th>
+                                <th>V. Compra</th>
+                                <th>V. Venda</th>
                                 <th>Unid.</th>
-                                <th>Detalhe</th>
                             </tr>
                         </thead>
-                        <tbody class="appendProduct text-center"></tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Categoria</th>
+                                <th>Nome</th>
+                                <th>Marca</th>
+                                <th>dt_fabricacao</th>
+                                <th>dt_validade</th>
+                                <th>V. Compra</th>
+                                <th>V. Venda</th>
+                                <th>Unid.</th>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </main>
