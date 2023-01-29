@@ -37,20 +37,24 @@
                                 <i class="bi bi-exclamation-diamond"></i> Alerta
                             </button>
                         </div>
+                        <div class="col-md-2 col-sm-12">
+                            <button type="button" class="btn btn-outline-dark" id="colorDark" onclick="colorDark(this.id)"><i class="bi bi-palette-fill"></i></button>
+                            <button type="button" class="btn btn-outline-danger d-none" id="colorlight" onclick="colorLight(this.id)"><i class="iconLight bi bi-palette-fill"></i></button>
+                        </div>
                     </div>
 
                     <hr>
-                    <table id="tableProduto" class="table table-hover table-dark table-striped">
+                    <table id="tableProduto" class="table table-hover table-striped">
                         <thead>
                             <tr>
                                 <th>Categoria</th>
                                 <th>Nome</th>
                                 <th>Marca</th>
-                                <th>dt_fabricacao</th>
                                 <th>dt_validade</th>
                                 <th>V. Compra</th>
                                 <th>V. Venda</th>
                                 <th>Unid.</th>
+                                <th>Config <i class="bi bi-gear-fill"></i></th>
                             </tr>
                         </thead>
                         <tfoot>
@@ -58,11 +62,11 @@
                                 <th>Categoria</th>
                                 <th>Nome</th>
                                 <th>Marca</th>
-                                <th>dt_fabricacao</th>
                                 <th>dt_validade</th>
                                 <th>V. Compra</th>
                                 <th>V. Venda</th>
                                 <th>Unid.</th>
+                                <th>Config <i class="bi bi-gear-fill"></i></th>
                             </tr>
                         </tfoot>
                     </table>

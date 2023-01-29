@@ -19,7 +19,7 @@ function getProduct() {
             produtos = JSON.parse(xhr.responseText);
             $('#tableProduto').dataTable({
                 "ajax": {
-                    "url": 'http://192.168.15.4:3005/product-list',
+                    "url": url,
                     "dataType": 'json',
                     "type": "GET",
                     "beforeSend": function (xhr) {
@@ -31,29 +31,41 @@ function getProduct() {
                     { "data": "category[0].name" },
                     { "data": "nome" },
                     { "data": "marca" },
-                    { "data": "dt_fabricacao" },
                     { "data": "dt_validade" },
                     { "data": "valor" },
                     { "data": "valor_venda" },
-                    { "data": "quantidade" }
+                    { "data": "quantidade" },
+                    {
+                        "data": "id", "render": function (res) {
+                            return `
+                            <a class="btn btn-warning" style="margin-left:5px;" onclick="viewProduct('${res}')"><i class="bi bi-eye-fill"></i></a>
+                            <a class="btn btn-success" style="margin-left:5px;" onclick="editProduct('${res}')"><i class="bi bi-pencil-fill"></i></a>
+                            <a class="btn btn-danger" style="margin-left:5px;" onclick="removeProduct('${res}')"><i class="bi bi-trash3-fill"></i></a>
+                        `;
+                        }
+                    }
                 ],
                 language: {
                     url: "json/ptBr.json"
                 },
-                select: false
+                select: false,
+                scrollY: '50vh',
+                scrollCollapse: true,
             });
         }
     };
     xhr.send();
-   setTimeout(() => {
-    $('#tableProduto tbody').on('click', 'tr', function () {
-        $(this).toggleClass('selected');
-    });
-   }, 1000);
+    setTimeout(() => {
+        $('#tableProduto tbody').on('click', 'tr', function () {
+            $(this).toggleClass('selected');
+        });
+    }, 1000);
     return produtos;
 }
-
-getProduct();
+function viewProduct(data) {
+    console.log(data)
+}
+getProduct(); // init table
 
 function titleModal(data) {
     if (data == 1) $("#titleModal").text("Novo Registro de Produto");
@@ -146,14 +158,35 @@ function postProduct() {
         headers: {
             "Authorization": `${token()[0]} ${token()[1]}`
         },
-        success: (res)=> {
+        success: (res) => {
             $('#formProduto, select, input').val(''); // reset form
             $('.exit').click(); //fecha modal
+            console.log(res.data)
+            let table = $('#tableProduto').dataTable();
+            //$('#tableProduto').dataTable().fnClearTable();
+            const data2 = res.data
+            
+            table.dataTable().fnAddData(data2); // add bew row
+            $('#formProduto, select, input').val(''); // reset form
+            console.log(data2)
             alert200('msgAction', res.message); //apresenta mensagem
-            getProduct(); // atualiza tabela
-        }, error: (res)=> {
+        }, error: (res) => {
             const msg = res.responseJSON;
             alert401('alertPostProduct', `${msg.data}!`)
         }
     });
+}
+
+function colorDark(id){
+    console.log(id)
+    let table = $('#tableProduto');
+    table.addClass('table-dark');
+    $(`#${id}`).addClass('d-none');
+    $('#colorlight').removeClass('d-none');
+}
+function colorLight(id){
+    let table = $('#tableProduto');
+    table.removeClass('table-dark');
+    $(`#${id}`).addClass('d-none');
+    $('#colorDark').removeClass('d-none');
 }
