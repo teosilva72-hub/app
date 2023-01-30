@@ -51,6 +51,7 @@ function getProduct() {
                 select: false,
                 scrollY: '50vh',
                 scrollCollapse: true,
+                responsive: true
             });
         }
     };
@@ -62,9 +63,7 @@ function getProduct() {
     }, 1000);
     return produtos;
 }
-function viewProduct(data) {
-    console.log(data)
-}
+
 getProduct(); // init table
 
 function titleModal(data) {
@@ -178,7 +177,6 @@ function postProduct() {
 }
 
 function colorDark(id){
-    console.log(id)
     let table = $('#tableProduto');
     table.addClass('table-dark');
     $(`#${id}`).addClass('d-none');
@@ -189,4 +187,30 @@ function colorLight(id){
     table.removeClass('table-dark');
     $(`#${id}`).addClass('d-none');
     $('#colorDark').removeClass('d-none');
+}
+
+function viewProduct(id) {
+    const url = `${ip[0]}:${ip[1]}:3005/get-product/${id}`;
+    $.ajax({
+        type: 'GET',
+        url: url,
+        contentType: 'application/json',
+        async: false,
+        headers: {
+            "Authorization": `${token()[0]} ${token()[1]}`
+        },
+        success: (res) => {
+           console.log(res.data)
+        }, error: (res) => {
+            console.log(res.data + " <<< error")
+        }
+    });
+}
+
+function editProduct(id){
+    alert('edit' + id);
+}
+
+function removeProduct(id){
+    alert('delete' + id);
 }

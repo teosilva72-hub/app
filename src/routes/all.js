@@ -7,7 +7,7 @@ const routes = new express.Router();
 routes.get('/login', controllerLogin.login);
 routes.get('/logout', controllerLogin.logout);
 routes.post('/login', controllerLogin.postLogin);
-routes.get('/produtos', controllerProduto.produtos);
+routes.get('/estoque', controllerProduto.produtos);
 
 routes.get('/', controllerIndex.index);
 

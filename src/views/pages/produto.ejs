@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/produto.css">
     <link rel="stylesheet" href="css/jquery.dataTables.css">
     <link rel="stylesheet" href="bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/responsive.dataTables.css">
 </head>
 
 <body>
@@ -19,7 +20,9 @@
             <main class="mainProduto" id="mainProduct">
                 <div class="container">
                     <div class="row">
+                        <hr>
                         <div class="col-12" id="msgAction"></div>
+                        <div class="col-md-2 col-sm-12 mb-3"><h1 class="text-center">ESTOQUE</h1></div>
                         <div class="col-md-2 col-sm-12">
                             <button type="button" class="btn btn-danger col-12 mb-3" data-bs-toggle="modal"
                                 data-bs-target="#modalProduto" onclick="titleModal(1); getCategory()">
@@ -38,8 +41,8 @@
                             </button>
                         </div>
                         <div class="col-md-2 col-sm-12">
-                            <button type="button" class="btn btn-outline-dark" id="colorDark" onclick="colorDark(this.id)"><i class="bi bi-palette-fill"></i></button>
-                            <button type="button" class="btn btn-outline-danger d-none" id="colorlight" onclick="colorLight(this.id)"><i class="iconLight bi bi-palette-fill"></i></button>
+                            <button type="button" class="btn btn-outline-dark mb-3 col-12" id="colorDark" onclick="colorDark(this.id)"><i class="bi bi-palette-fill"></i> Tabela Escura</button>
+                            <button type="button" class="btn btn-outline-danger d-none mb-3 col-12" id="colorlight" onclick="colorLight(this.id)"><i class="iconLight bi bi-palette-fill"></i> Tabela Clara</button>
                         </div>
                     </div>
 
@@ -50,23 +53,23 @@
                                 <th>Categoria</th>
                                 <th>Nome</th>
                                 <th>Marca</th>
-                                <th>dt_validade</th>
+                                <th>Dt. Validade</th>
                                 <th>V. Compra</th>
                                 <th>V. Venda</th>
                                 <th>Unid.</th>
-                                <th>Config <i class="bi bi-gear-fill"></i></th>
+                                <th><i class="bi bi-gear-fill"></i> Configuração</th>
                             </tr>
                         </thead>
                         <tfoot>
-                            <tr>
+                            <tr class="text-center">
                                 <th>Categoria</th>
                                 <th>Nome</th>
                                 <th>Marca</th>
-                                <th>dt_validade</th>
+                                <th>Dt. Validade</th>
                                 <th>V. Compra</th>
                                 <th>V. Venda</th>
                                 <th>Unid.</th>
-                                <th>Config <i class="bi bi-gear-fill"></i></th>
+                                <th><i class="bi bi-gear-fill"></i> Configuração</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -76,9 +79,11 @@
             <script src="jquery/dist/jquery.js"></script>
             <script src="js/maskMoney.js"></script>
             <script src="js/jquery.dataTables.js"></script>
+            <script src="js/dataTables.responsive.js"></script>
             <script src="bootstrap/dist/js/bootstrap.js"></script>
             <script src="js/produto.js"></script>
             <script src="js/alerts.js"></script>
+            <script src="js/global.js"></script>
 </body>
 
 </html>
