@@ -10,7 +10,7 @@
                 <form id="formProduto">
                    
                     <div class="row">
-                        <div class="col-md-6 col-sm-12">
+                        <div class="col-md-6 col-sm-12" id="input-categoria">
                             <span class="txt-span">Categoria</span>
                             <select name="categoria" class="categoria form-select mb-3" value="" required>
                                 <option value="">Selecionar</option>
@@ -74,8 +74,12 @@
                         <button type="button" class="btn btn-warning exit" data-bs-dismiss="modal">
                             <i class="bi bi-x-circle"></i> Fechar
                         </button>
-                        <button type="button" class="btn btn-danger" onclick="postProduct()">
+                        <button type="button" class="btn btn-danger" id="saveProduct" onclick="postProduct()">
                             <i class="bi bi-save"></i> Salvar
+                        </button>
+                        <input type="hidden" id="idProduct" value="">
+                        <button type="button" class="btn btn-danger d-none" id="editProduct" onclick="PutProduct()">
+                            <i class="bi bi-save"></i> Editar
                         </button>
                     </div>
                 </form>
